@@ -1,0 +1,73 @@
+# depslib dependency file v1.0
+1522722125 source:c:\users\lucho\documents\programacion\programacion1y-laboratorio1-master\tp_1_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1522723031 c:\users\lucho\documents\programacion\programacion1y-laboratorio1-master\tp_1_cascara\funciones.h
+
+1523556164 source:c:\programación\tp_1_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"funciones.h"
+
+1523557832 c:\programación\tp_1_cascara\funciones.h
+
+1522795657 source:c:\test\lgontad\tp_1_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1522793538 c:\test\lgontad\tp_1_cascara\funciones.h
+
+1522795136 source:c:\test\lgontad\tp_1_cascara\funciones.c
+	<stdio.h>
+	"funciones.h"
+
+1523028877 source:c:\programación\lgontad\tp_1_cascara\funciones.c
+	<stdio.h>
+	"funciones.h"
+
+1523036063 c:\programación\lgontad\tp_1_cascara\funciones.h
+
+1523039638 source:c:\programación\lgontad\tp_1_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"funciones.h"
+
+1523028878 source:e:\lgontad\tp_1_cascara\funciones.c
+	<stdio.h>
+	"funciones.h"
+
+1523036064 e:\lgontad\tp_1_cascara\funciones.h
+
+1523557832 source:c:\programación\tp_1_cascara\funciones.c
+	<stdio.h>
+	"funciones.h"
+
+1523580526 source:e:\tp_1_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"funciones.h"
+
+1523580044 e:\tp_1_cascara\funciones.h
+
+1523581026 source:e:\tp_1_cascara\funciones.c
+	<stdio.h>
+	"funciones.h"
+
+1523581026 source:c:\programación\tp_1_calculadora\funciones.c
+	<stdio.h>
+	"funciones.h"
+
+1523580044 c:\programación\tp_1_calculadora\funciones.h
+
+1523581172 source:c:\programación\tp_1_calculadora\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"funciones.h"
+
