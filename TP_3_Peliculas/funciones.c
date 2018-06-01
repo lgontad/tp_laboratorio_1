@@ -39,7 +39,7 @@ void alta(eMovie peliculas[])
 		printf("INGRESO DE DATOS:\n");
 		printf("Ingrese ID: ");
 		scanf("%d", &id);
-		/*Buscamos si el legajo ya existe*/
+		/*Buscamos si el id ya existe*/
 		for(i=0; i<M; i++)
 		{
 			if(id==peliculas[i].idPelicula)
@@ -177,31 +177,6 @@ void modificar(eMovie* peliculas)
 		getch();
 	}
 }
-void mayorPuntaje(eMovie* peliculas)
-{
-	int i, flag=0;
-	float maxPuntaje;
-	for(i=0; i<M; i++)
-	{
-		if(peliculas[i].idPelicula!=0)
-		  if(flag==0 || peliculas[i].puntaje>maxPuntaje)
-		  {
-			maxPuntaje=peliculas[i].puntaje;
-			flag=1;
-		  }
-	}
-	printf("El o las Peliculas con mayor puntaje (%d) son:\n", maxPuntaje);
-	for(i=0; i<M; i++)
-	{
-		if(peliculas[i].idPelicula!=0)
-		  if(peliculas[i].puntaje==maxPuntaje)
-		  {
-
-			toString((peliculas + i));
-		  }
-	}
-	getch();
-}
 
 int guardarEnArchivo(eMovie * x)
 {
@@ -270,33 +245,37 @@ void crearHTML(eMovie *x)
             {
                 printf("Article");
                 strcat(buffer,"<article class='col-md-4 article-intro'> "
-       "<a href='#'> <img class='img-responsive img-rounded' src='x[i].Genero' alt=''> "
-               "</a>"
-               "<h3>"
-                    "<a href='#'>");
-                    printf("Titulo");
+                "<a href='#'> <img class='img-responsive img-rounded' src='");
+                strcat(buffer,x[i].linkImagen);
+                strcat(buffer,"' alt=''> "
+                "</a>"
+                "<h3>"
+                "<a href='#'>");
+                printf("Titulo");
                 strcat(buffer,x[i].titulo);
                 printf("Cuerpo");
                 strcat(buffer, "</a> "
-               "</h3>"
+                "</h3>"
                 "<ul>"
-                    "<li>Género: ");printf("Genero");strcat(buffer,x[i].genero); printf("Cuerpo2");
-                     strcat(buffer, "</li>"
+                "<li>Género: ");printf("Genero");
+                strcat(buffer,x[i].genero); printf("Cuerpo2");
+                strcat(buffer, "</li>"
+                "<li>Puntaje: ");printf("Puntaje");
+                char puntaje[3];
+                itoa(x[i].puntaje,puntaje,10);
+                strcat(buffer,puntaje); printf("Cuerpo3");
 
-                    "<li>Puntaje: ");printf("Puntaje");
-                    char puntaje[3];
-                    itoa(x[i].puntaje,puntaje,10);
-                    strcat(buffer,puntaje); printf("Cuerpo3");
+                char duracion[3];
+                itoa(x[i].duracion,duracion,10);
 
-                    char duracion[3];
-                    itoa(x[i].duracion,duracion,10);
-
-                    strcat(buffer, "</li>"
-                    "<li>Duración:"); printf("Duracion");
-                    strcat(buffer,duracion); printf("Cuerpo4");
-                    strcat(buffer, "</li>"
-                    "</ul>"
+                strcat(buffer, "</li>"
+                "<li>Duración:"); printf("Duracion");
+                strcat(buffer,duracion); printf("Cuerpo4");
+                strcat(buffer, "</li>"
+                "</ul>"
                 "<p>");
+                strcat(buffer, "</li>"
+                "<li>Descripcion:");
                 strcat(buffer,x[i].descripcion);
                 strcat(buffer,"</p>"
                 "</article>");
