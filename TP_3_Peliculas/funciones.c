@@ -94,25 +94,12 @@ void listar(eMovie *peliculas)
 	int i,j;
 	eMovie auxMovie;
 
-	for(i=0; i<M-1;i++)
-	{
-		for(j=i+1; j<M; j++)
-		{
-			if(strcmp(peliculas[i].titulo,peliculas[j].titulo)>0)
-			{
-				auxMovie=peliculas[i];
-				peliculas[i]=peliculas[j];
-				peliculas[j]=auxMovie;
-			}
-		}
-	}
 
 	printf("\ID\tTitulo\tGenero\tDuracion\t\tDescripcion\tPuntaje\tLinkImagen\n");
 	for(i=0; i<M; i++)
 	{
 		if(peliculas[i].idPelicula!=0)
 		   toString((peliculas + i));
-
 	}
 	getch();
 }
@@ -261,12 +248,12 @@ int cargarDesdeArchivo(eMovie *x)
 
 }
 
-/*void crearHTML(eMovie *x)
+void crearHTML(eMovie *x)
 {
     int i;
     FILE *f;
     char encabezado[50]="Listado De Peliculas";
-    char buffer[1080]= {}; //="<html><body><MARQUEE><h1>Hola a todos</h1></MARQUEE></body></html>";
+    char buffer[30000]= {}; //="<html><body><MARQUEE><h1>Hola a todos</h1></MARQUEE></body></html>";
 
     strcat(buffer,"<html><head><style>table, th, td {border: 1px solid"
             "black; border-collapse: collapse;}th, td { padding: 15px;}"
@@ -275,22 +262,49 @@ int cargarDesdeArchivo(eMovie *x)
     strcat(buffer,encabezado);
 
     strcat(buffer,"</h1></MARQUEE><br><br>");
-    strcat(buffer,"<article class='col-md-4 article-intro'> "
+
+    for(i=0; i<M; i++)
+	{
+		if(x[i].idPelicula!=0)
+            {
+                printf("Article");
+                strcat(buffer,"<article class='col-md-4 article-intro'> "
        "<a href='#'> <img class='img-responsive img-rounded' src='x[i].Genero' alt=''> "
                "</a>"
                "<h3>"
-                    "<a href='#'>Back to the future</a> "
+                    "<a href='#'>");
+                    printf("Titulo");
+                strcat(buffer,x[i].titulo);
+                printf("Cuerpo");
+                strcat(buffer, "</a> "
                "</h3>"
                 "<ul>"
-                    "<li>Género:Aventura</li>"
-                    "<li>Puntaje:86</li>"
-                    "<li>Duración:116</li>"
+                    "<li>Género: ");printf("Genero");strcat(buffer,x[i].genero); printf("Cuerpo2");
+                     strcat(buffer, "</li>"
+
+                    "<li>Puntaje: ");printf("Puntaje");
+                    char puntaje[3];
+                    itoa(x[i].puntaje,puntaje,10);
+                    strcat(buffer,puntaje); printf("Cuerpo3");
+
+                    char duracion[3];
+                    itoa(x[i].duracion,duracion,10);
+
+                    strcat(buffer, "</li>"
+                    "<li>Duración:"); printf("Duracion");
+                    strcat(buffer,duracion); printf("Cuerpo4");
+                    strcat(buffer, "</li>"
                     "</ul>"
-                "<p>A young man is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his friend, Dr. Emmett Brown, and must make sure his high-school-age parents unite in order to save his own existence.</p>"
-                "</article>"
-           "</body></html>");
+                "<p>");
+                strcat(buffer,x[i].descripcion);
+                strcat(buffer,"</p>"
+                "</article>");
+            }
 
+	}
+     strcat(buffer,"</body></html>");
 
+     printf("Abre archivo");
      f=fopen("Lista de Peliculas.html", "w");
 
      if(f == NULL)
@@ -299,27 +313,10 @@ int cargarDesdeArchivo(eMovie *x)
      }
      else
      {
-         fprintf(f,"Listado de Peliculas\n\n\n");
-         fprintf(f,"Titulo    Genero     Puntaje \n");
 
-         for(i=0; i<M; i++)
-         {
-                  if(x[i].idPelicula != 0)
-                  {
-                  fprintf(f,"%d\t%s\t\%s\t\%d\t\%s\t\%d\t\%s\n",x[i].idPelicula, x[i].titulo, x[i].genero,x[i].duracion, x[i].descripcion,x[i].puntaje, x[i].linkImagen);
-                  }
-         }
-      }
+    fprintf(f,buffer);
 
-      fclose(f);
-
-      printf("Listado creado con exito\n");
-      system("pause");
-}*/
-
-
-   /* fprintf(archivo,buffer);
-
-    fclose(archivo);
-    return 0;*/
-
+    fclose(f);
+    return;
+     }
+}

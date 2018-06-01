@@ -51,10 +51,10 @@ int main()
 				system("cls");
 				modificar(movies);
 				break;
-			/*case '5':
+			case '5':
 				system("cls");
 				crearHTML(movies);
-				break;*/
+				break;
 			case '6':
 
 				printf("\nGuardar cambios S/N ?: ");
