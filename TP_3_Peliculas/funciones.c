@@ -86,7 +86,7 @@ void alta(eMovie peliculas[])
 
 void toString(eMovie* unaMovie)
 {
-	printf("%d\t\t%s\t\t%s\t\t%d\t\t%s\t\t%d\t\t%s\n",unaMovie->idPelicula, unaMovie->titulo, unaMovie->genero, unaMovie->duracion, unaMovie->descripcion, unaMovie->puntaje, unaMovie->linkImagen);
+	printf("%d\t%s\t%s\t%d\t\t%s\t\t%d\n",unaMovie->idPelicula, unaMovie->titulo, unaMovie->genero, unaMovie->duracion, unaMovie->descripcion, unaMovie->puntaje);
 }
 
 void listar(eMovie *peliculas)
@@ -95,7 +95,7 @@ void listar(eMovie *peliculas)
 	eMovie auxMovie;
 
 
-	printf("\ID\tTitulo\tGenero\tDuracion\t\tDescripcion\tPuntaje\tLinkImagen\n");
+	printf("\ID\tTitulo\tGenero\tDuracion\tDescripcion\tPuntaje\n");
 	for(i=0; i<M; i++)
 	{
 		if(peliculas[i].idPelicula!=0)
@@ -107,6 +107,7 @@ void baja(eMovie* peliculas)
 {
 	int id, flag=0,i;
 	char opcion;
+	listar(peliculas);
 	printf("Ingrese Id a dar de baja: ");
 	scanf("%d", &id);
 	for(i=0; i<M; i++)

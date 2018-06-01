@@ -29,3 +29,18 @@
 	<stdlib.h>
 	"funciones.h"
 
+1527885451 source:c:\test\lgontad\tp3\tp_laboratorio_1\tp_3_peliculas\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1527884999 c:\test\lgontad\tp3\tp_laboratorio_1\tp_3_peliculas\funciones.h
+
+1527885442 source:c:\test\lgontad\tp3\tp_laboratorio_1\tp_3_peliculas\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"Funciones.h"
+
